@@ -18,6 +18,7 @@ jobs:
           command: |
             pipenv run pytest --version
           name: Test it
+      - run: python --version
     
       
       
