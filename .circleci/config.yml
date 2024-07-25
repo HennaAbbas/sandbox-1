@@ -12,15 +12,12 @@ jobs:
       - checkout
       - run: whoami
       - python/install-packages:
-          pkg-manager: pip
-      - python/install-packages:
           args: pytest
-          pkg-manager: pip
-          pypi-cache: false
+          pkg-manager: pipenv
       - run:
           command: |
-            pytest --version
-          name: Test
+            pipenv run pytest --version
+          name: Test it
     
       
       
