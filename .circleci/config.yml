@@ -7,7 +7,7 @@ jobs:
   build:
 
     executor: python/default
-      tag: '3.12'
+    tag: '3.12'
     
     steps:
       - checkout
