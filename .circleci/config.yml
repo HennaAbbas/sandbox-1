@@ -1,23 +1,30 @@
 version: 2.1
 
 orbs:
-  macos: circleci/macos@2.4.0
   python: circleci/python@2.1.1
   
 jobs:
   build:
-    macos:
-      xcode: 15.1.0
-    resource_class: macos.x86.medium.gen2
+
+    executor: python/default
     
     steps:
       - checkout
-      - run: xcodebuild -version
-      - run: brew --version
       - run: whoami
-      - python/dist
-      - run: pip install twine
-      - run: pip --version
+      - python/install-packages:
+          pkg-manager: pip
+      - python/install-packages:
+          pip-dependency-file: dev-requirements.txt
+          pkg-manager: pip
+      - python/install-packages:
+          args: pytest
+          pkg-manager: pip
+          pypi-cache: false
+      - run:
+          command: |
+            pytest --version
+          name: Test
+    
       
       
 workflows:
