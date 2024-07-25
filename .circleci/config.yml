@@ -6,7 +6,7 @@ orbs:
 jobs:
   build:
 
-    executor: cimg/python:3.12
+    executor: 3.12
     
     steps:
       - checkout
