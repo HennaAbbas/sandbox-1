@@ -6,7 +6,8 @@ orbs:
 jobs:
   build:
 
-    executor: "3.12"
+    executor: python/default
+      tag: "3.12"
     
     steps:
       - checkout
