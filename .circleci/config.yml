@@ -6,7 +6,7 @@ orbs:
 jobs:
   build:
 
-    executor: 3.12
+    executor: "3.12"
     
     steps:
       - checkout
